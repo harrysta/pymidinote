@@ -293,5 +293,8 @@ class Note:
     def __repr__(self):
         return str(self)
 
-table = list(csv.reader(open('12edo.csv')))
+import pathlib
+
+filename = pathlib.Path(__file__).parent / '12edo.csv'
+table = list(csv.reader(open(filename)))
 midi_dict =  {i : ifreq(440, (i -69, 0)) for i in range(128)}
